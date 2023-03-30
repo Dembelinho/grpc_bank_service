@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class GrpcServer {
     public static void main(String[] args) throws IOException, InterruptedException {
+        //Waiting Client's connection
         Server server= ServerBuilder.forPort(5555)
                 .addService(new BankGrpcService())
                 .build();

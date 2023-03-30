@@ -41,7 +41,7 @@ public class BankGrpcService extends BankServiceGrpc.BankServiceImplBase {
                         .build();
                 responseObserver.onNext(response);
                 ++cpt;
-                if (cpt==15) {
+                if (cpt==16) {
                     responseObserver.onCompleted();
                     timer.cancel();
                 }
@@ -88,7 +88,7 @@ public class BankGrpcService extends BankServiceGrpc.BankServiceImplBase {
 
             @Override
             public void onError(Throwable throwable) {
-
+                System.out.println(throwable.toString());
             }
 
             @Override
