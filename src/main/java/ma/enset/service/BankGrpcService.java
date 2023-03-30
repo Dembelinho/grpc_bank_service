@@ -82,6 +82,9 @@ public class BankGrpcService extends BankServiceGrpc.BankServiceImplBase {
             public void onNext(Bank.ConvertCurrencyRequest convertCurrencyRequest) {
                 Bank.ConvertCurrencyResponse response= Bank.ConvertCurrencyResponse.newBuilder()
                         .setResult(convertCurrencyRequest.getAmount()*Math.random()*40)
+                        .setCurrencyTo(convertCurrencyRequest.getCurrencyTo())
+                        .setCurrencyFrom(convertCurrencyRequest.getCurrencyFrom())
+                        .setAmount(convertCurrencyRequest.getAmount())
                         .build();
                 responseObserver.onNext(response);
             }
